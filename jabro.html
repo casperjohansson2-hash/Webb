@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olika input-typer</title>
+</head>
+
+<body>
+
+    <h1>Olika input-typer i HTML</h1>
+    <p>Testa de olika fälten och se vad som händer.</p>
+
+
+    <!-- VANLIG TEXT -->
+    <label for="namn">Text:</label>
+    <input type="text" id="namn">
+    <br><br>
+
+
+    <!-- LÖSENORD -->
+    <label for="losenord">Lösenord:</label>
+    <input type="password" id="losenord">
+    <br><br>
+
+
+    <!-- TAL -->
+    <label for="alder">Tal:</label>
+    <input type="number" id="alder">
+    <br><br>
+
+
+    <!-- E-POST -->
+    <label for="epost">E-post:</label>
+    <input type="email" id="epost">
+    <br><br>
+
+
+    <!-- TELEFONNUMMER -->
+    <label for="telefon">Telefonnummer:</label>
+    <input type="tel" id="telefon">
+    <br><br>
+
+
+    <!-- WEBBADRESS -->
+    <label for="webbadress">Webbadress:</label>
+    <input type="url" id="webbadress">
+    <br><br>
+
+
+    <!-- SÖKFÄLT -->
+    <label for="sokning">Sökfält:</label>
+    <input type="search" id="sokning">
+    <br><br>
+
+
+    <!-- DATUM -->
+    <label for="datum">Datum:</label>
+    <input type="date" id="datum">
+    <br><br>
+
+
+    <!-- TID -->
+    <label for="tid">Tid:</label>
+    <input type="time" id="tid">
+    <br><br>
+
+
+    <!-- DATUM OCH TID -->
+    <label for="datumTid">Datum och tid:</label>
+    <input type="datetime-local" id="datumTid">
+    <br><br>
+
+
+    <!-- MÅNAD -->
+    <label for="manad">Månad:</label>
+    <input type="month" id="manad">
+    <br><br>
+
+
+    <!-- VECKA -->
+    <label for="vecka">Vecka:</label>
+    <input type="week" id="vecka">
+    <br><br>
+
+
+    <!-- FÄRG -->
+    <label for="farg">Färg:</label>
+    <input type="color" id="farg">
+    <br><br>
+
+
+    <!-- REGLAGE -->
+    <label for="volym">Reglage:</label>
+    <input type="range" id="volym" min="0" max="100">
+    <br><br>
+
+
+    <!-- KRYSSRUTA -->
+    <label for="godkann">Checkbox:</label>
+    <input type="checkbox" id="godkann">
+    <br><br>
+
+
+    <!-- RADIOKNAPPAR -->
+    <p>Radioknappar:</p>
+
+    <input type="radio" id="alternativ1" name="alternativ">
+    <label for="alternativ1">Alternativ 1</label>
+
+    <input type="radio" id="alternativ2" name="alternativ">
+    <label for="alternativ2">Alternativ 2</label>
+
+    <input type="radio" id="alternativ3" name="alternativ">
+    <label for="alternativ3">Alternativ 3</label>
+
+    <br><br>
+
+
+    <!-- FIL -->
+    <label for="fil">Välj en fil:</label>
+    <input type="file" id="fil">
+    <br><br>
+
+
+    <!-- KNAPP -->
+    <input type="button" value="Vanlig knapp">
+    <br><br>
+
+
+    <!-- SUBMIT-KNAPP -->
+    <input type="submit" value="Skicka">
+    <br><br>
+
+
+    <!-- RESET-KNAPP -->
+    <input type="reset" value="Återställ">
+
+
+    <!--
+        Det finns även input type="hidden".
+        Den syns inte på webbsidan och används för att
+        lagra information som användaren inte behöver se.
+
+        Exempel:
+        <input type="hidden" id="hemligtVarde" value="123">
+    -->
+
+</body>
+</html>
