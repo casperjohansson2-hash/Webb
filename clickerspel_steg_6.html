@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klickerspel</title>
+</head>
+<body>
+    
+    <canvas id="canvas" width="600" height="500"
+        style="border: 3px solid black;"></canvas>
+
+    <script>
+        // Hämta Canvas
+        var canvas = document.getElementById("canvas");
+
+        // Verktyget vi använder för att rita
+        var ctx = canvas.getContext("2d");
+        
+        // Rita cirkeln
+        ctx.beginPath();
+        ctx.arc(x, y, radie, 0, Math.PI * 2);
+
+        ctx.fillStyle = "red";
+        ctx.fill();
+
+        // Cirkelns position och storlek
+        var x = 300;
+        var y = 250;
+        var radie = 40;
+        var score = 0;
+
+        // Rita cirkeln
+        ctx.beginPath();
+        ctx.arc(x, y, radie, 0, Math.PI * 2);
+
+        ctx.fillStyle = "red";
+        ctx.fill();
+
+        ctx.font = "72px Arial";
+        ctx.fillStyle = "black";
+        ctx.textAlign = "center";
+        ctx.fillText("Poäng: " + score, canvas.width / 2, 100);
+        
+        // När användaren klickar på Canvas
+        canvas.addEventListener("click", function(event) {
+
+            var klickX = event.offsetX;
+            var klickY = event.offsetY;
+            
+            if (klickX > x - radie &&
+            klickX < x + radie &&
+            klickY > y - radie &&
+            klickY < y + radie) {
+            
+            // Uppdatera poängen
+            score = score + 1;
+            
+            // Sudda Canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Slumpa en ny position
+            x = Math.floor(Math.random() * 500) + 50;
+            y = Math.floor(Math.random() * 400) + 50;
+
+            // Rita cirkeln på den nya positionen
+            ctx.beginPath();
+            ctx.arc(x, y, radie, 0, Math.PI * 2);
+            ctx.fillStyle = "red";
+            ctx.fill();
+
+            // Rita ut den nya poängen
+            
+            ctx.font = "72px Arial";
+            ctx.fillStyle = "black";
+            ctx.textAlign = "center";
+            ctx.fillText("Poäng: " + score, canvas.width / 2, 100);
+            } 
+        });
+
+        
+        </script>
+</body>
+</html>

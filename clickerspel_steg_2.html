@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klickerspel</title>
+</head>
+<body>
+    
+    <canvas id="canvas" width="600" height="500"
+        style="border: 3px solid black;"></canvas>
+
+    <script>
+        // Hämta Canvas
+        var canvas = document.getElementById("canvas");
+
+        // Verktyget vi använder för att rita
+        var ctx = canvas.getContext("2d");
+
+        // Cirkelns position och storlek
+        var x = 300;
+        var y = 250;
+        var radie = 40;
+
+        // Rita cirkeln
+        ctx.beginPath();
+        ctx.arc(x, y, radie, 0, Math.PI * 2);
+
+        ctx.fillStyle = "red";
+        ctx.fill();
+
+
+        
+        // När användaren klickar på Canvas
+        canvas.addEventListener("click", function(event) {
+        alert("Du klickade på Canvas!");
+        });
+
+
+        // Vad betyder det?
+        // Vi kan dela upp:
+        // canvas.addEventListener("click", ...)
+
+        // som:
+        // Lyssna efter att någon klickar på Canvas.
+
+        // addEventListener betyder ungefär lägg till en händelselyssnare.
+        // När klicket inträffar körs funktionen:
+        // function(event) {
+        // }
+
+        // Och event innehåller information om klicket som just inträffade.
+        // Just nu använder vi inte informationen. Vi testar bara:
+        // alert("Du klickade på Canvas!");
+        </script>
+</body>
+</html>

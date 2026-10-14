@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" width="600" height="500"
+    style="border-radius: 0.5ch; border: 3px solid black;"> </canvas>
+
+    <script defer>
+        var canvas = document.getElementById("canvas");
+
+        var ctx = canvas.getContext("2d");
+
+        var x = 300;
+        var y = 250;
+        var radie = 40;
+        var score = 0;
+
+        ctx.beginPath();
+        ctx.arc(x, y, radie, 0, Math.PI * 2);
+
+        ctx.fillStyle = "red";
+        ctx.fill();
+
+        ctx.font = "72px Arial";
+        ctx.fillStyle = "black";
+        ctx.textAlign = "center";
+        ctx.fillText("Poäng: " + score, canvas.width / 2, 100);
+
+        canvas.addEventListener("click", function(event) {
+        var klickX = event.offsetX;
+        var klickY = event.offsetY;
+        if (klickX > x - radie &&
+            klickX < x + radie &&
+            klickY > y - radie &&
+            klickY < y + radie) {
+            score = score + 1;
+        
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            x = Math.floor(Math.random() * 500) + 50;
+            y = Math.floor(Math.random() * 400) + 50;
+
+            ctx.beginPath();
+            ctx.arc(x, y, radie, 0, Math.PI * 2);
+            ctx.fillStyle = "red";
+            ctx.fill();
+            ctx.font = "72px Arial";
+            ctx.fillStyle = "black";
+            ctx.textAlign = "center";
+            ctx.fillText("Poäng: " + score, canvas.width / 2, 100);} 
+
+
+    });
+
+
+
+    </script>
+</body>
+</html>
