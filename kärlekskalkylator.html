@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VÄLDIGT RIKTIG OCH VÄLDIGT PÅLITLIG KÄRLEKS KALKYLATOR</title>
+    <style>
+        body {
+            background-color: palevioletred;
+            display: flex;
+            justify-content: center; 
+            align-items: center;    
+            min-height: 100vh;       
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: red;
+            position: relative;
+        }
+
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px black;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        input {
+            margin: 5px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: darkred;
+        }
+
+        #resultat {
+            margin-top: 15px;
+            font-weight: bold;
+            white-space: pre-line; 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>❤️ KÄRLEKSKALKYLATOR ❤️</h1>
+        <input type="text" id="namn1" placeholder="Första personens namn">
+        <input type="text" id="namn2" placeholder="Andra personens namn"><br>
+        <button onclick="beraknaKarlek()">Räkna ut matchning!</button>
+
+        <div id="resultat"></div>
+    </div>
+
+    <script>
+    function beraknaKarlek() {
+        let namn1 = document.getElementById("namn1").value.trim();
+        let namn2 = document.getElementById("namn2").value.trim();
+
+        if (namn1 === "" || namn2 === "") {
+            document.getElementById("resultat").innerText = "Fyll i båda namnen!";
+            return;
+        }
+
+        let n = Math.floor(Math.random() * 100);
+
+       
+        if (namn1.toLowerCase() === "lessi" || namn2.toLowerCase() === "lessi") {
+            n = 100;
+        }
+
+        let meddelande = "";
+        if (n >= 87) {
+            meddelande = "PERFEKT! PERSONERNA ÄR MENADE FÖR VARANDRA!";
+            document.body.style.backgroundColor = "hotpink";
+        } else if (n >= 60) {
+            meddelande = "Bra matchning! Men det kan bli problem i framtiden om båda inte håller.";
+            document.body.style.backgroundColor = "pink";
+        } else if (n >= 30) {
+            meddelande = "Det finns gnistor, men det blir svårt att hålla ett förhållande tillsammans. Inte menade för varandra.";
+            document.body.style.backgroundColor = "lightblue";
+        } else {
+            meddelande = "NEJ. BARA NEJ. ABSOLUT INTE EN MATCHNING!";
+            document.body.style.backgroundColor = "grey";
+        }
+
+        
+        document.getElementById("resultat").innerText = `${namn1} + ${namn2} = ${n}%! ❤️\n\n${meddelande}`;
+    }
+    </script>
+
+</body>
+</html>

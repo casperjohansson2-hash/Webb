@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Kalkylator</title>
+    <style>
+        body {
+            background-color: blanchedalmond;
+            padding: 20px;
+            font-family: sans-serif;
+            transition: background-color 0.4s ease;
+        }
+
+        h1 {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        button {
+            background-color: #302e2e;
+            color: beige;
+            padding: 8px 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        img {
+            position: relative;
+            max-width: 90%;
+            height: auto;
+            max-height: 400px;
+        }
+
+        .container {
+            margin-top: 20px;
+        }
+
+        #resultat {
+            font-weight: bold;
+            margin-top: 15px;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>BMI-Kalkylator</h1>
+    <input type="number" id="vikt" placeholder="Vikt (kg)">
+    <input type="number" id="längd" placeholder="Längd (cm)"><br><br>
+    <button onclick="beraknaBMI()">Räkna ut BMI!</button>
+    
+    
+    <p id="resultat"></p>
+
+    <div class="container">
+        <img src="https://cdn.britannica.com/30/73630-004-0FFB5466/Height-weight-chart-Body-Mass-Index.jpg?w=400&h=300&c=crop">
+    </div>
+
+    <script>
+        function beraknaBMI() {
+            let vikt = parseFloat(document.getElementById("vikt").value);
+            let längdCm = parseFloat(document.getElementById("längd").value);
+
+            if (!vikt || !längdCm || längdCm <= 0) {
+                alert("Fyll i både vikt (kg) och längd (cm).");
+                return;
+            }
+
+            let längdM = längdCm / 100;
+            let bmi = Math.round(vikt / (längdM ** 2));
+            let meddelande = "";
+
+            if (bmi >= 30) {
+                meddelande = "Du måste ta din vikt och hälsa på allvar. Ändra din diet och börja träna för att undvika hjärt- och kärlsjukdomar.";
+                document.body.style.backgroundColor = "crimson";
+            } else if (bmi >= 25) {
+                meddelande = "Om du är vältränad så är detta normalt. Om inte, så borde du börja överväga att ändra din diet och att träna lite mer för att undvika hjärt- och kärlsjukdomar.";
+                document.body.style.backgroundColor = "lightcoral";
+            } else if (bmi >= 18.5) {
+                meddelande = "Du ligger bra till!";
+                document.body.style.backgroundColor = "lightgreen";
+            } else {
+                meddelande = "Du bör äta lite mer eller träna mer för att undvika att bli undernärd.";
+                document.body.style.backgroundColor = "lightgray";
+            }
+
+            document.getElementById("resultat").innerText = `Din BMI är: ${bmi}\n${meddelande}`;
+        }
+    </script>
+</body>
+</html>

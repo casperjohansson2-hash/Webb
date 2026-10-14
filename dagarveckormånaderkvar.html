@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hur mycket tid har du kvar?</title>
+</head>
+<body>
+    <h1>Sätt in ditt namn och ta reda på hur många dagar, veckor och månader du har kvar tills du fyller 90 år!</h1>
+    <input type="number" id="ålder" placeholder="Skriv din ålder!">
+    <button onclick="beräknaTid()">Räkna ut tid!</button>
+
+    <p id="resultat"></p>
+    <script>
+        function beräknaTid(){
+            let ålder = document.getElementById("ålder");
+            let årKvar = 90 - ålder;
+            let dagarKvar = årKvar * 365;
+            let veckorKvar = årKvar * 52;
+            let månaderKvar = årKvar * 12;
+        }
+
+        document.getElementById("resultat").innerText = ("Du har " + {dagarKvar} + " dagar kvar, " + {veckorKvar} + " veckor kvar och " + {månaderKvar} + " månader kvar!");
+    </script>
+</body>
+</html>
